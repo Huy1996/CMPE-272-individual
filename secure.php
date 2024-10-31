@@ -13,7 +13,7 @@ $users = ["Mary Smith", "John Wang", "Alex Bington", "John Doe"]
 
 <?php 
 include(dirname(__FILE__)."/config.php");
-include BASE_PATH .'/header.php'; 
+include BASE_URL .'/header.php'; 
 ?>
 <div class="container">
         <h2>Current Users of the Website</h2>
@@ -23,4 +23,4 @@ include BASE_PATH .'/header.php';
             } ?>
         </ul>
     </div>
-<?php include BASE_PATH .'/footer.php'; ?>
+<?php include BASE_URL .'/footer.php'; ?>

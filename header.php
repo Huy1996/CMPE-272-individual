@@ -1,3 +1,5 @@
+<?php include_once(dirname(__FILE__)."/config.php"); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,21 +14,21 @@
             <h1>TechMasters</h1>
         </div>
         <nav>
-            <ul>
-                <li><a href="/index.php">Home</a></li>
-                <li><a href="/about.php">About</a></li>
-                <li><a href="/products.php">Products/Services</a></li>
-                <li><a href="/news.php">News</a></li>
-                <li><a href="/contacts.php">Contact</a></li>
-                <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
-                    <!-- If logged in, show Logout and Secure Section -->
-                    <li><a href="/secure.php">Secure</a></li>
-                    <li><a href="/logout.php">Logout</a></li>
-                <?php else: ?>
-                    <!-- If not logged in, show Login -->
-                    <li><a href="/login.php">Login</a></li>
-                <?php endif; ?>
-            </ul>
+        <ul>
+            <li><a href="<?php echo BASE_URL; ?>/index.php">Home</a></li>
+            <li><a href="<?php echo BASE_URL; ?>/about.php">About</a></li>
+            <li><a href="<?php echo BASE_URL; ?>/products.php">Products/Services</a></li>
+            <li><a href="<?php echo BASE_URL; ?>/news.php">News</a></li>
+            <li><a href="<?php echo BASE_URL; ?>/contacts.php">Contact</a></li>
+            <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+                <!-- If logged in, show Secure and Logout links -->
+                <li><a href="<?php echo BASE_URL; ?>/secure.php">Secure</a></li>
+                <li><a href="<?php echo BASE_URL; ?>/logout.php">Logout</a></li>
+            <?php else: ?>
+                <!-- If not logged in, show Login link -->
+                <li><a href="<?php echo BASE_URL; ?>/login.php">Login</a></li>
+            <?php endif; ?>
+        </ul>
         </nav>
     </header>
     <main> <!-- Start of the main content -->

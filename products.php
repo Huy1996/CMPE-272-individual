@@ -1,7 +1,7 @@
 <?php 
 session_start();
 include(dirname(__FILE__)."/config.php");
-include BASE_PATH .'/header.php'; 
+include BASE_URL .'/header.php'; 
 ?>
     <h2>Our Products and Services</h2>
     <ul>
@@ -31,4 +31,4 @@ include BASE_PATH .'/header.php';
         ?>
     </ul>
     <p><a href="/products/most_visited.php">View Most Visited Products</a></p>
-<?php include BASE_PATH .'/footer.php'; ?>
+<?php include BASE_URL .'/footer.php'; ?>

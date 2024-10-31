@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 <?php 
 include(dirname(__FILE__)."/config.php");
-include BASE_PATH .'/header.php'; 
+include BASE_URL .'/header.php'; 
 ?>
 
 <div class="login-container">
@@ -60,4 +60,4 @@ include BASE_PATH .'/header.php';
         </form>
     </div>
 
-<?php include BASE_PATH .'/footer.php'; ?>
+<?php include BASE_URL .'/footer.php'; ?>
