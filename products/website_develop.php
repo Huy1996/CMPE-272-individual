@@ -3,7 +3,7 @@ session_start();
 // Product details
 $product_name = "Website Development";
 $product_description = "We build custom websites from scratch, providing robust, responsive, and modern solutions tailored to your business needs.";
-$product_image = "./images/web-development.png";
+$product_image = "products/images/web-development.png";
 
 // Track recently visited products using cookies
 if (isset($_COOKIE['recently_visited'])) {
@@ -30,15 +30,15 @@ if (isset($_COOKIE['product_visits'])) {
 $product_visits[$product_name] = ($product_visits[$product_name] ?? 0) + 1;
 setcookie('product_visits', serialize($product_visits), time() + (86400 * 30), "/");
 
-include 'header.php'; 
+include '../header.php'; 
 ?>
 
 <div class="container">
     <h2><?php echo $product_name; ?></h2>
     <img src="<?php echo $product_image; ?>" alt="<?php echo $product_name; ?>" style="width:300px;height:auto;">
     <p><?php echo $product_description; ?></p>
-    <a href="../products.php">Back to Products</a>
+    <a href="products.php">Back to Products</a>
 </div>
 
-<?php include 'footer.php'; ?>
+<?php include '../footer.php'; ?>
 

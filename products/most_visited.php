@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'header.php'; 
+include '../header.php'; 
 ?>
     <h2>Most Visited Products</h3>
     <ul>
@@ -18,4 +18,4 @@ include 'header.php';
         ?>
     </ul>
 
-<?php include 'footer.php'; ?>   
+<?php include '../footer.php'; ?>   

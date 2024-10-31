@@ -29,5 +29,5 @@ include 'header.php';
         }
         ?>
     </ul>
-    <p><a href="/products/most_visited.php">View Most Visited Products</a></p>
+    <p><a href="products/most_visited.php">View Most Visited Products</a></p>
 <?php include 'footer.php'; ?>
