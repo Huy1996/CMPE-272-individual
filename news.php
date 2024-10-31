@@ -1,6 +1,7 @@
 <?php 
 session_start();
-include 'header.php'; 
+include(dirname(__FILE__)."/config.php");
+include BASE_URL .'/header.php'; 
 ?>
 
     <h2>Careers at TechMasters Software Solutions</h2>
@@ -18,4 +19,4 @@ include 'header.php';
 
     <p>If you are interested, please send your resume and cover letter to <a href="mailto:careers@techmasters.com">careers@techmasters.com</a>.</p>
 
-<?php include 'footer.php'; ?>
+<?php include BASE_URL .'/footer.php'; ?>

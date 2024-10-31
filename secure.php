@@ -11,7 +11,10 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 $users = ["Mary Smith", "John Wang", "Alex Bington", "John Doe"]
 ?>
 
-<?php include 'header.php'; ?>
+<?php 
+include(dirname(__FILE__)."/config.php");
+include BASE_URL .'/header.php'; 
+?>
 <div class="container">
         <h2>Current Users of the Website</h2>
         <ul>
@@ -20,4 +23,4 @@ $users = ["Mary Smith", "John Wang", "Alex Bington", "John Doe"]
             } ?>
         </ul>
     </div>
-<?php include 'footer.php'; ?>
+<?php include BASE_URL .'/footer.php'; ?>

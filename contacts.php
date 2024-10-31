@@ -1,6 +1,7 @@
 <?php 
 session_start();
-include 'header.php'; 
+include_once(dirname(__FILE__)."/config.php");
+include BASE_URL .'/header.php'; 
 ?>
 
 <?php
@@ -16,4 +17,4 @@ if (file_exists($filename)) {
 }
 ?>
 
-<?php include 'footer.php'; ?>
+<?php include BASE_URL .'/footer.php'; ?>
