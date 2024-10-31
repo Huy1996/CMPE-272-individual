@@ -39,7 +39,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 }
 ?>
-<?php include 'header.php'; ?>
+<?php 
+include(dirname(__FILE__)."/config.php");
+include BASE_PATH .'/header.php'; 
+?>
 
 <div class="login-container">
         <h2>Admin Login</h2>
@@ -57,4 +60,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form>
     </div>
 
-<?php include 'footer.php'; ?>
+<?php include BASE_PATH .'/footer.php'; ?>

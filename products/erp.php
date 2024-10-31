@@ -30,7 +30,8 @@ if (isset($_COOKIE['product_visits'])) {
 $product_visits[$product_name] = ($product_visits[$product_name] ?? 0) + 1;
 setcookie('product_visits', serialize($product_visits), time() + (86400 * 30), "/");
 
-include 'header.php'; 
+include(dirname(__FILE__)."/../config.php");
+include BASE_PATH . '/header.php';
 ?>
 
 <div class="container">
@@ -40,5 +41,4 @@ include 'header.php';
     <a href="../products.php">Back to Products</a>
 </div>
 
-<?php include 'footer.php'; ?>
-
+<?php include BASE_PATH . '/footer.php'; ?>

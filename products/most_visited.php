@@ -1,6 +1,7 @@
 <?php
 session_start();
-include 'header.php'; 
+include(dirname(__FILE__)."/../config.php");
+include BASE_PATH . '/header.php';
 ?>
     <h2>Most Visited Products</h3>
     <ul>
@@ -18,4 +19,4 @@ include 'header.php';
         ?>
     </ul>
 
-<?php include 'footer.php'; ?>   
+    <?php include BASE_PATH . '/footer.php'; ?>
