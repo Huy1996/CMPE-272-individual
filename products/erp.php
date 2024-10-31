@@ -1,9 +1,9 @@
 <?php
 session_start();
 // Product details
-$product_name = "Website Development";
-$product_description = "We build custom websites from scratch, providing robust, responsive, and modern solutions tailored to your business needs.";
-$product_image = "./images/web-development.png";
+$product_name = "Enterprise Resource Planning (ERP) Systems";
+$product_description = "Our ERP solutions streamline business processes and provide real-time data insights for efficient resource management.";
+$product_image = "./images/Enterprise-Resource-Planning-Systems.png";
 
 // Track recently visited products using cookies
 if (isset($_COOKIE['recently_visited'])) {

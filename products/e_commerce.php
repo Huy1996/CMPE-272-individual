@@ -1,9 +1,9 @@
 <?php
 session_start();
 // Product details
-$product_name = "Website Development";
-$product_description = "We build custom websites from scratch, providing robust, responsive, and modern solutions tailored to your business needs.";
-$product_image = "./images/web-development.png";
+$product_name = "E-commerce Solutions";
+$product_description = "We provide end-to-end e-commerce solutions, creating fully customized platforms to boost sales and enhance customer experience.";
+$product_image = "./images/E-commerce-Solutions.jpg";
 
 // Track recently visited products using cookies
 if (isset($_COOKIE['recently_visited'])) {

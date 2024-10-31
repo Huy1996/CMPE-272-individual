@@ -1,9 +1,9 @@
 <?php
 session_start();
 // Product details
-$product_name = "Website Development";
-$product_description = "We build custom websites from scratch, providing robust, responsive, and modern solutions tailored to your business needs.";
-$product_image = "./images/web-development.png";
+$product_name = "Mobile App Development";
+$product_description = "Our mobile app development service offers intuitive and high-performance apps for both iOS and Android platforms.";
+$product_image = "./images/mobile-app-development.jpg";
 
 // Track recently visited products using cookies
 if (isset($_COOKIE['recently_visited'])) {

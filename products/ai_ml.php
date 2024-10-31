@@ -1,9 +1,9 @@
 <?php
 session_start();
 // Product details
-$product_name = "Website Development";
-$product_description = "We build custom websites from scratch, providing robust, responsive, and modern solutions tailored to your business needs.";
-$product_image = "./images/web-development.png";
+$product_name = "AI and Machine Learning Integration";
+$product_description = "Enhance your business operations with our AI and Machine Learning solutions, designed to streamline processes and improve data analysis.";
+$product_image = "./images/AI-ML-intergration.jpg";
 
 // Track recently visited products using cookies
 if (isset($_COOKIE['recently_visited'])) {

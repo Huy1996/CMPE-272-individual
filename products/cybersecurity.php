@@ -1,9 +1,9 @@
 <?php
 session_start();
 // Product details
-$product_name = "Website Development";
-$product_description = "We build custom websites from scratch, providing robust, responsive, and modern solutions tailored to your business needs.";
-$product_image = "./images/web-development.png";
+$product_name = "Cybersecurity Solutions";
+$product_description = "Protect your business with our comprehensive cybersecurity solutions, including threat detection, risk management, and encryption services.";
+$product_image = "./images/cybersecurity.jpeg";
 
 // Track recently visited products using cookies
 if (isset($_COOKIE['recently_visited'])) {

@@ -2,12 +2,18 @@
 session_start();
 include 'header.php'; 
 ?>
-
     <h2>Our Products and Services</h2>
     <ul>
-        <li><a href="products/website_develop.php">Custom Software Development</a></li>
-        <li>IT Consulting</li>
-        <li>Cloud Solutions</li>
+        <li><a href="products/website_develop.php">Website Development</a></li>
+        <li><a href="products/mobile_app_development.php">Mobile App Development</a></li>
+        <li><a href="products/data_analytic.php">Data Analytics</a></li>
+        <li><a href="products/cybersecurity.php">Cybersecurity Solutions</a></li>
+        <li><a href="products/cloud.php">Cloud Migration Services</a></li>
+        <li><a href="products/ai_ml.php">AI and Machine Learning Integration</a></li>
+        <li><a href="products/blockchain.php">Blockchain Solutions</a></li>
+        <li><a href="products/it.php">IT Infrastructure Management</a></li>
+        <li><a href="products/erp.php">Enterprise Resource Planning (ERP) Systems</a></li>
+        <li><a href="products/e_commerce.php">E-commerce Solutions</a></li>
     </ul>
 
     <h3>Recently Visited Products</h3>
@@ -23,22 +29,5 @@ include 'header.php';
         }
         ?>
     </ul>
-
-    <h3>Most Visited Products</h3>
-    <ul>
-        <?php
-        if (isset($_COOKIE['product_visits'])) {
-            $product_visits = unserialize($_COOKIE['product_visits']);
-            arsort($product_visits);
-            $top_visited = array_slice($product_visits, 0, 5);
-            foreach ($top_visited as $product => $count) {
-                echo "<li>$product - $count visits</li>";
-            }
-        } else {
-            echo "<li>No product visits recorded.</li>";
-        }
-        ?>
-    </ul>
-
-
+    <p><a href="/products/most_visited.php">View Most Visited Products</a></p>
 <?php include 'footer.php'; ?>

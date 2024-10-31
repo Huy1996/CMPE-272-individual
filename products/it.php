@@ -1,9 +1,9 @@
 <?php
 session_start();
 // Product details
-$product_name = "Website Development";
-$product_description = "We build custom websites from scratch, providing robust, responsive, and modern solutions tailored to your business needs.";
-$product_image = "./images/web-development.png";
+$product_name = "IT Infrastructure Management";
+$product_description = "Our IT infrastructure management services cover setup, maintenance, and monitoring to ensure your systems are always running smoothly.";
+$product_image = "./images/IT-Infrastructure-Management.jpg";
 
 // Track recently visited products using cookies
 if (isset($_COOKIE['recently_visited'])) {

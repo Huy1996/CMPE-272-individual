@@ -1,9 +1,9 @@
 <?php
 session_start();
 // Product details
-$product_name = "Website Development";
-$product_description = "We build custom websites from scratch, providing robust, responsive, and modern solutions tailored to your business needs.";
-$product_image = "./images/web-development.png";
+$product_name = "Data Analytics";
+$product_description = "Leverage our data analytics services to uncover insights, make data-driven decisions, and optimize your business processes.";
+$product_image = "./images/data-analytics.png";
 
 // Track recently visited products using cookies
 if (isset($_COOKIE['recently_visited'])) {

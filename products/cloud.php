@@ -1,9 +1,9 @@
 <?php
 session_start();
 // Product details
-$product_name = "Website Development";
-$product_description = "We build custom websites from scratch, providing robust, responsive, and modern solutions tailored to your business needs.";
-$product_image = "./images/web-development.png";
+$product_name = "Cloud Migration Services";
+$product_description = "Our team assists you in securely and seamlessly migrating your applications and data to the cloud for enhanced scalability and cost-efficiency.";
+$product_image = "./images/cloud-migration.jpg";
 
 // Track recently visited products using cookies
 if (isset($_COOKIE['recently_visited'])) {
