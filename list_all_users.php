@@ -44,9 +44,25 @@ $all_users = array_merge($local_users, $company_b_users ?: [], $company_c_users 
 <div class="container">
     <h2>Combined List of Users</h2>
     <ul class="user-list">
-        <?php foreach ($all_users as $user): ?>
-            <li class="user-item"><?php echo htmlspecialchars($user); ?></li>
-        <?php endforeach; ?>
+        <h3>Tech Masters</h3>
+        <?php if (!empty($local_users)): ?>
+            <?php foreach ($local_users as $user): ?>
+                <li class="user-item"><?php echo htmlspecialchars($user); ?></li>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <li class="user-item">No users available</li>
+        <?php endif; ?>
+
+        <br>
+
+        <h3>Future Technology</h3>
+        <?php if (!empty($company_b_users)): ?>
+            <?php foreach ($company_b_users as $user): ?>
+                <li class="user-item"><?php echo htmlspecialchars($user); ?></li>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <li class="user-item">No users available</li>
+        <?php endif; ?>
     </ul>
 </div>
 
