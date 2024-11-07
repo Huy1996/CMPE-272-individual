@@ -19,6 +19,7 @@
                 <li><a href="products.php">Products/Services</a></li>
                 <li><a href="news.php">News</a></li>
                 <li><a href="contacts.php">Contact</a></li>
+                <li><a href="list_all_users.php">Users</a></li>
                 <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
                     <!-- If logged in, show Logout and Secure Section -->
                     <li><a href="secure.php">Secure</a></li>
