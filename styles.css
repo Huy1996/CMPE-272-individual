@@ -146,3 +146,36 @@ a.button {
 a.button:hover {
     background-color: #14507e;
 }
+
+
+/* Title styling */
+.title {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 10px;
+}
+
+/* User list styling */
+.user-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.user-item {
+    font-size: 18px;
+    color: #555;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.user-item:last-child {
+    border-bottom: none;
+}
+
+/* Hover effect for list items */
+.user-item:hover {
+    background-color: #f1f1f1;
+    color: #333;
+}
