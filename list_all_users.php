@@ -34,10 +34,6 @@ $local_users = getLocalUsers();
 
 // Fetch users from other companies using their get_users.php endpoint
 $company_b_users = fetchRemoteUsers('https://chaudoan.site/chauonline/get_users.php'); // Update with actual URL
-// $company_c_users = fetchRemoteUsers('https://companyc.com/get_users.php'); // Update with actual URL
-
-// Combine all users into one list
-$all_users = array_merge($local_users, $company_b_users ?: [], $company_c_users ?: []); // Use empty array if CURL fails
 
 ?>
 
