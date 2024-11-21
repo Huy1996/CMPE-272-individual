@@ -1,3 +1,5 @@
+<?php include "token_handling.php"; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -31,13 +33,18 @@
                     </ul>
                 </li>
 
-                <?php if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true): ?>
+                <?php if ($first_name): ?>
                     <!-- If logged in, show Logout and Secure Section -->
-                    <li><a href="secure.php">Secure</a></li>
-                    <li><a href="logout.php">Logout</a></li>
+                    <li>
+                        <a href="#">Welcome, <?php echo htmlspecialchars($first_name); ?></a>
+                        <ul class="dropdown">
+                            <li><a href="secure.php">Secure</a></li>
+                            <li><a href="logout.php">Logout</a></li>
+                        </ul>
+                    </li>
                 <?php else: ?>
                     <!-- If not logged in, show Login -->
-                    <li><a href="login.php">Login</a></li>
+                    <li><a href="http://localhost/home/login.php?redirect=http://localhost/hw/index.php">Login</a></li>
                 <?php endif; ?>
             </ul>
         </nav>
