@@ -1,12 +1,6 @@
 <?php
-
-// Database connection
-try {
-    $conn = new PDO("mysql:host=localhost:3306;dbname=tech_masters", "root", "");
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    die("Database connection failed: " . $e->getMessage());
-}
+include "../includes/get_review.php";
+include "../includes/get_product_detail.php";
 
 // Get product ID from query parameters
 $product_id = $_GET['id'] ?? null;
@@ -14,10 +8,7 @@ if (!$product_id) {
     die("Product not found.");
 }
 
-// Fetch product details from the database
-$stmt = $conn->prepare("SELECT * FROM products WHERE product_id = ?");
-$stmt->execute([$product_id]);
-$product = $stmt->fetch(PDO::FETCH_ASSOC);
+$product = get_product_details($product_id);
 
 if (!$product) {
     die("Product not found.");
@@ -53,39 +44,7 @@ if (isset($_COOKIE['product_visits'])) {
 $product_visits[$product_id] = ($product_visits[$product_id] ?? 0) + 1;
 setcookie('product_visits', serialize($product_visits), time() + (86400 * 30), "/");
 
-// // Handle review submission
-// if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SESSION['user'])) {
-//     $user = $_SESSION['user'];
-//     $rating = $_POST['rating'];
-//     $review_text = $_POST['review_text'];
-
-//     $stmt = $conn->prepare("INSERT INTO reviews (product_id, user_id, first_name, rating, review_text) VALUES (?, ?, ?, ?)");
-//     $stmt->execute([$product_id, $user['id'], $user['first_name'], $rating, $review_text]);
-
-//     echo "<p>Thank you for your review!</p>";
-// }
-
-// Fetch reviews for the product
-try {
-    $stmt = $conn->prepare("
-        SELECT 
-            review_id, 
-            first_name, 
-            rating, 
-            review_text, 
-            created_at 
-        FROM 
-            reviews 
-        WHERE 
-            product_id = ? 
-        ORDER BY 
-            created_at DESC
-    ");
-    $stmt->execute([$product_id]);
-    $reviews = $stmt->fetchAll(PDO::FETCH_ASSOC);
-} catch (PDOException $e) {
-    die("Error fetching reviews: " . $e->getMessage());
-}
+$reviews = get_review($product_id);
 
 include '../header.php'; 
 $user = $_SESSION['user'];
