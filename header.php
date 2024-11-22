@@ -1,4 +1,10 @@
-<?php include "token_handling.php"; ?>
+<?php 
+include "token_handling.php"; 
+if (isset($_SESSION['loggedin']) || $_SESSION['loggedin'] === true) {
+    $user = $_SESSION['user'];
+    $first_name = $user['first_name'];
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">

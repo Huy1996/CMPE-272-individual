@@ -13,18 +13,22 @@ function validate_jwt($token, $secret_key) {
     return $signature === $base64ValidSignature ? $decodedPayload : false;
 }
 
-$jwt = $_GET['token'] ?? null;
-if ($jwt) {
-    $user = validate_jwt($jwt, 'your_secret_key');
-    if ($user) {
-        session_start();
-        $_SESSION['user'] = $user;
-        setcookie("auth_token", $jwt, time() + 3600, "/", "", true, true);
-        $first_name = $user['first_name'];
+
+session_start();
+if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
+    $jwt = $_GET['token'] ?? null;
+    if ($jwt) {
+        $user = validate_jwt($jwt, 'your_secret_key');
+        if ($user) {
+            $_SESSION['user'] = $user;
+            $_SESSION['loggedin'] = true;
+            setcookie("auth_token", $jwt, time() + 3600, "/", "", true, true);
+            $first_name = $user['first_name'];
+        } else {
+            echo "Invalid or expired token.";
+        }
     } else {
-        echo "Invalid or expired token.";
+        echo "Welcome, guest!";
     }
-} else {
-    echo "Welcome, guest!";
-}
+} 
 ?>

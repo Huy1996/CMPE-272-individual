@@ -1,33 +1,57 @@
 <?php 
-session_start();
 include 'header.php'; 
+
+// Database connection
+try {
+    $conn = new PDO("mysql:host=localhost:3306;dbname=tech_masters", "root", "");
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Database connection failed: " . $e->getMessage());
+}
+
+// Fetch all products from the database
+$stmt = $conn->prepare("SELECT * FROM products");
+$stmt->execute();
+$products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
+
+<div class="container">
     <h2>Our Products and Services</h2>
     <ul>
-        <li><a href="products/website_develop.php">Website Development</a></li>
-        <li><a href="products/mobile_app_development.php">Mobile App Development</a></li>
-        <li><a href="products/data_analytic.php">Data Analytics</a></li>
-        <li><a href="products/cybersecurity.php">Cybersecurity Solutions</a></li>
-        <li><a href="products/cloud.php">Cloud Migration Services</a></li>
-        <li><a href="products/ai_ml.php">AI and Machine Learning Integration</a></li>
-        <li><a href="products/blockchain.php">Blockchain Solutions</a></li>
-        <li><a href="products/it.php">IT Infrastructure Management</a></li>
-        <li><a href="products/erp.php">Enterprise Resource Planning (ERP) Systems</a></li>
-        <li><a href="products/e_commerce.php">E-commerce Solutions</a></li>
+        <?php foreach ($products as $product): ?>
+            <li><a href="products/product_details.php?id=<?php echo $product['product_id']; ?>">
+                <?php echo htmlspecialchars($product['product_name']); ?>
+            </a></li>
+        <?php endforeach; ?>
     </ul>
 
     <h3>Recently Visited Products</h3>
     <ul>
         <?php
         if (isset($_COOKIE['recently_visited'])) {
-            $recently_visisted = unserialize($_COOKIE['recently_visited']);
-            foreach ($recently_visisted as $product) {
-                echo "<li>$product</li>";
+            $recently_visited = unserialize($_COOKIE['recently_visited']);
+            
+            if (!empty($recently_visited)) {
+                // Fetch details of recently visited products from the database
+                $placeholders = implode(',', array_fill(0, count($recently_visited), '?'));
+                $stmt = $conn->prepare("SELECT * FROM products WHERE product_id IN ($placeholders)");
+                $stmt->execute($recently_visited);
+                $recently_visited_products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+                foreach ($recently_visited_products as $product) {
+                    echo "<li><a href='product_details.php?id=" . $product['product_id'] . "'>" . 
+                         htmlspecialchars($product['product_name']) . 
+                         "</a></li>";
+                }
+            } else {
+                echo "<li>No recently visited products.</li>";
             }
         } else {
-            echo "<li>No recently visisted products.</li>";
+            echo "<li>No recently visited products.</li>";
         }
         ?>
     </ul>
     <p><a href="products/most_visited.php">View Most Visited Products</a></p>
+</div>
+
 <?php include 'footer.php'; ?>
