@@ -1,7 +1,4 @@
-<?php 
-session_start();
-include 'header.php'; 
-?>
+<?php include 'header.php'; ?>
 
 <?php
 require_once 'includes/search_user.php';

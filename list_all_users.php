@@ -1,5 +1,4 @@
-<?php
-session_start();
+<?php 
 include 'header.php';
 
 // Local function to read users from users.txt

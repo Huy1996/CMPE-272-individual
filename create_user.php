@@ -1,7 +1,4 @@
-<?php 
-session_start();
-include 'header.php'; 
-?>
+<?php include 'header.php'; ?>
 
 <div class="form-container">
     <h2>Add User</h2>
