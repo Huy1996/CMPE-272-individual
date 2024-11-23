@@ -50,7 +50,9 @@ if (isset($_SESSION['loggedin']) || $_SESSION['loggedin'] === true) {
                     </li>
                 <?php else: ?>
                     <!-- If not logged in, show Login -->
-                    <li><a href="http://localhost/home/login.php?redirect=http://localhost/hw/index.php">Login</a></li>
+                    <!-- <li><a href="http://localhost/home/login.php?redirect=http://localhost/hw/index.php">Login</a></li> -->
+                    <li><a href="https://nguyenduong.site/login.php?redirect=https://nguyenduong.site/company/index.php">Login</a></li>
+
                 <?php endif; ?>
             </ul>
         </nav>
