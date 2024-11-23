@@ -11,7 +11,7 @@ if (isset($_SESSION['loggedin']) || $_SESSION['loggedin'] === true) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <base href="/hw/">
+    <base href="/company/">
     <title>TechMasters Software Solutions</title>
     <!-- <link rel="stylesheet" href="styles.css"> Link to your CSS file -->
     <link rel="stylesheet" href="styles2.css">
