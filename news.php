@@ -1,7 +1,4 @@
-<?php 
-session_start();
-include 'header.php'; 
-?>
+<?php include 'header.php'; ?>
 
     <h2>Careers at TechMasters Software Solutions</h2>
     <p>We are always looking for talented individuals to join our team. Check out our open positions below:</p>

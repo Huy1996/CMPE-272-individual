@@ -1,7 +1,7 @@
 <?php
 // read the list of users from the text file
 $users = [];
-$file = fopen('users.txt', "r");
+$file = fopen('../users.txt', "r");
 
 if ($file) {
     while (($line = fgets($file)) !== false) {

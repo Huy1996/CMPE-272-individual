@@ -1,21 +1,28 @@
 <?php
-session_start();
+include "../includes/get_most_visit.php";
+try {
+    $top_visited_products = get_most_visit();
+} catch (Exception $e) {
+    die("Error: " . $e->getMessage());
+}
+
+
 include '../header.php'; 
 ?>
-    <h2>Most Visited Products</h3>
+<div class="container">
+    <h2>Most Visited Products</h2>
     <ul>
-        <?php
-        if (isset($_COOKIE['product_visits'])) {
-            $product_visits = unserialize($_COOKIE['product_visits']);
-            arsort($product_visits);
-            $top_visited = array_slice($product_visits, 0, 5);
-            foreach ($top_visited as $product => $count) {
-                echo "<li>$product - $count visits</li>";
-            }
-        } else {
-            echo "<li>No product visits recorded.</li>";
-        }
-        ?>
+        <?php if (!empty($top_visited_products)): ?>
+            <?php foreach ($top_visited_products as $product): ?>
+                <li>
+                    <?php echo htmlspecialchars($product['product_name']); ?> 
+                    - <?php echo htmlspecialchars($product['visit_count']); ?> visits
+                </li>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <li>No product visits recorded.</li>
+        <?php endif; ?>
     </ul>
+</div>
 
 <?php include '../footer.php'; ?>   
